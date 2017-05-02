@@ -3,7 +3,6 @@
 module Vong where
 
 import Control.Monad (foldM)
-import GHC.Generics (Generic)
 import System.Random (randomRIO)
 import qualified Data.Text as T
 
