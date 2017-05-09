@@ -4,15 +4,15 @@ module Vong where
 
 import Control.Monad (foldM)
 import Data.Csv (FromRecord)
+import Data.List (isPrefixOf)
 import GHC.Generics (Generic)
 import System.Random (randomRIO)
-import qualified Data.Text as T (Text, replace)
 
 type Probability = Float
 
 data Replacement = Replacement
-    { search :: T.Text
-    , replace :: T.Text
+    { search :: String
+    , replace :: String
     , probability :: Probability
     } deriving (Generic)
 
@@ -21,13 +21,17 @@ instance FromRecord Replacement
 conditioned :: Probability -> IO Bool
 conditioned p = (1 - p <=) <$> randomRIO (0, 1)
 
-replaceConditioned :: T.Text -> Replacement -> IO T.Text
-replaceConditioned text Replacement{..} = do
-    should <- conditioned probability
-    return $
-        if should
-            then T.replace search replace text
-            else text
+replaceConditioned :: String -> Replacement -> IO String
+replaceConditioned [] _ = return []
+replaceConditioned text@(x:xs) r@Replacement {..} =
+    if isPrefixOf search text
+        then do
+            should <- conditioned probability
+            if should
+                then (replace ++) <$>
+                     replaceConditioned (drop (length search) text) r
+                else (x :) <$> replaceConditioned xs r
+        else (x :) <$> replaceConditioned xs r
 
-translate :: [Replacement] -> T.Text -> IO T.Text
+translate :: [Replacement] -> String -> IO String
 translate = flip (foldM replaceConditioned)
