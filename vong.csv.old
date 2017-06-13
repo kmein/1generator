@@ -1,0 +1,58 @@
+" eine "," 1 ",1
+" ein "," 1 ",1
+" zwei ","2 ",1
+" drei ","3 ",1
+" vier ","4 ",1
+" fünf ","5 ",1
+" sechs ","6 ",1
+" sieben ","6 ",1
+" acht ","6 ",1
+" neun ","6 ",1
+" zehn ","6 ",1
+"Eine "," 1 ",1
+"Ein "," 1 ",1
+"Zwei ","2 ",1
+"Drei ","3 ",1
+"Vier ","4 ",1
+"Fünf ","5 ",1
+"Sechs ","6 ",1
+"Sieben ","6 ",1
+"Acht ","6 ",1
+"Neun ","6 ",1
+"Zehn ","6 ",1
+"ä","e",0.5
+"ö","öh",0.5
+"ü","üh",0.5
+"ins","in",0.5
+"sisch","schis",0.5
+"stisch","schtis",0.5
+"ar","ahr",0.5
+"ck","k",0.5
+"en","n",0.2
+"ft","f",0.5
+"hn","n",0.5
+"m","n",0.8
+"n","m",0.8
+"ntsch","nsch",0.5
+"ph","f",0.5
+"sch","shc",0.5
+"sh","sch",0.5
+"st","s",0.5
+"ß","s",0.5
+"tt","td",0.5
+"th","tt",0.5
+"tzt","ts",0.5
+"tz","ts",0.5
+"ur","uhr",0.5
+"v","f",0.5
+"v","w",0.5
+",","",1
+"seid ","seit ",0.5
+"al ","ahl ",0.5
+"aber","aba",0.5
+" an "," in ",0.5
+"auen ","aun ",0.5
+"on ","ong ",0.8
+"y ","i ",0.5
+"chnet ","chnen ",0.3
+"chnen ","chnet ",0.3
